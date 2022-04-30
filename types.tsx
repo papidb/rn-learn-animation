@@ -9,8 +9,8 @@ export type RootStackParamList = {
 };
 
 export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  ReactSpring: undefined;
+  Skia: undefined;
 };
 
 export type TabOneParamList = {

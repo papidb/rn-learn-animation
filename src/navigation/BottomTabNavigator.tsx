@@ -30,19 +30,19 @@ export default function BottomTabNavigator() {
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
     >
       <BottomTab.Screen
-        name="ReactSpring"
-        component={TabOneNavigator}
+        name="Skia"
+        component={TabTwoNavigator}
         options={{
-          title: "React Spring",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-code" color={color} />
           ),
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="ReactSpring"
+        component={TabOneNavigator}
         options={{
+          title: "React Spring",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-code" color={color} />
           ),
