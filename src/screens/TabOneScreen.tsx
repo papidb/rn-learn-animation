@@ -1,36 +1,10 @@
 import * as React from "react";
-import {
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  useWindowDimensions,
-} from "react-native";
+import { StyleSheet } from "react-native";
 
 import { Text, View } from "../components/Themed";
-import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/core";
+import { NavigationTab, TabProps } from "../components/NavigaitonTab";
 
-type PlayGround = {
-  title: string;
-  screen: string;
-};
-function Tab({ title, screen }: PlayGround) {
-  const navigation = useNavigation();
-  const navigateToScreen = React.useCallback(() => {
-    if (!screen) return;
-    navigation.navigate(screen);
-  }, [navigation]);
-  return (
-    <Pressable onPress={navigateToScreen}>
-      <View style={styles.tabContainer}>
-        <Text style={styles.tabTitle}>{title}</Text>
-        <Ionicons name="chevron-forward" />
-      </View>
-    </Pressable>
-  );
-}
-
-const playgrounds: PlayGround[] = [
+const playgrounds: TabProps[] = [
   {
     title: "Introduction",
     screen: "RSIntroduction",
@@ -38,15 +12,13 @@ const playgrounds: PlayGround[] = [
 ];
 
 export default function TabOneScreen() {
-  const navigation = useNavigation();
-  const navigateToIntroduction = React.useCallback(() => {
-    navigation.navigate("RSIntroduction");
-  }, [navigation]);
   return (
     <View>
-      <Text>Here are the list of projects I'm playing with in React spring</Text>
-      {playgrounds.map((playground: PlayGround) => (
-        <Tab key={playground.screen} {...playground} />
+      <Text>
+        Here are the list of projects I'm playing with in React spring
+      </Text>
+      {playgrounds.map((playground: TabProps) => (
+        <NavigationTab key={playground.screen} {...playground} />
       ))}
     </View>
   );
