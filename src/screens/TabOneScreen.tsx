@@ -37,16 +37,16 @@ const playgrounds: PlayGround[] = [
   },
 ];
 
-export default function ReactSpringHome() {
+export default function TabOneScreen() {
   const navigation = useNavigation();
   const navigateToIntroduction = React.useCallback(() => {
     navigation.navigate("RSIntroduction");
   }, [navigation]);
   return (
     <View>
-      <Text>Here are the list of projects I'm playing with in React Query</Text>
+      <Text>Here are the list of projects I'm playing with in React spring</Text>
       {playgrounds.map((playground: PlayGround) => (
-        <Tab {...playground} />
+        <Tab key={playground.screen} {...playground} />
       ))}
     </View>
   );
